@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Professor extends Pessoa {
 
     private double salario;
-    private String titulo;
+    private static final String titulo = "Doutor";
 
     public Professor() {
         this(0, "", "", 0);
@@ -14,7 +14,6 @@ public class Professor extends Pessoa {
     public Professor(double salario, String titulo, String nome, int idade) {
         super(nome, idade);
         this.salario = salario;
-        this.titulo = titulo;
     }
 
     public double getSalario() {
@@ -29,13 +28,9 @@ public class Professor extends Pessoa {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     @Override
     public String toString() {
-        return "nome=" + getNome() + ", idade=" + getIdade() + "salario=" + salario + ", titulo=" + titulo;
+        return "nome=" + getNome() + ", idade=" + getIdade() + ", salario=" + salario + ", titulo=" + titulo;
     }
 
     
@@ -50,7 +45,6 @@ public class Professor extends Pessoa {
     @Override
     public void leitura() {
         super.leitura();
-        titulo = JOptionPane.showInputDialog("Digite seu titulo:");
         salario = Double.parseDouble(JOptionPane.showInputDialog("Digite seu salario:"));
 
     }

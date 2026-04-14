@@ -6,8 +6,8 @@ public class Aluno extends Pessoa {
 
     private String curso;
 
-    public Aluno(String curso) {
-        this.curso = curso;
+    public Aluno() {
+        this("", "", 0);
     }
 
     public Aluno(String curso, String nome, int idade) {
@@ -16,15 +16,24 @@ public class Aluno extends Pessoa {
     }
 
     @Override
+    public String toString() {
+        return "nome=" + super.getNome() + ", idade=" + super.getIdade() + "curso=" + curso;
+    }
+
+    @Override
     public void imprimir() {
-        super.imprimir();
-        JOptionPane.showMessageDialog(null, "Curso: " + curso);
+        JOptionPane.showMessageDialog(null, toString());
     }
 
     @Override
     public void leitura() {
         super.leitura();
         curso = JOptionPane.showInputDialog("Digite seu curso:");
+    }
+
+    @Override
+    public void getNomeFormatado() {
+        JOptionPane.showMessageDialog(null, super.getNome().toUpperCase());
     }
 
 }

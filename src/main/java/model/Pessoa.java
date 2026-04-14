@@ -2,7 +2,7 @@ package model;
 
 import javax.swing.JOptionPane;
 
-public class Pessoa {
+public abstract class Pessoa {
 
     private String nome;
     private int idade;
@@ -37,10 +37,18 @@ public class Pessoa {
         idade = Integer.parseInt(JOptionPane.showInputDialog("Digite sua idade:"));
     }
 
+    
+    public String toString() {
+        return "";
+    }
+    
+    
+
     public void imprimir() {
-        JOptionPane.showMessageDialog(null, "Nome: " + nome);
-        JOptionPane.showMessageDialog(null, "Idade: " + idade);
+        
+        JOptionPane.showMessageDialog(null, toString());
 
     }
-
+    
+    public abstract void getNomeFormatado();
 }

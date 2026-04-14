@@ -7,9 +7,8 @@ public class Professor extends Pessoa {
     private double salario;
     private String titulo;
 
-    public Professor(double salario, String titulo) {
-        this.salario = salario;
-        this.titulo = titulo;
+    public Professor() {
+        this(0, "", "", 0);
     }
 
     public Professor(double salario, String titulo, String nome, int idade) {
@@ -35,10 +34,16 @@ public class Professor extends Pessoa {
     }
 
     @Override
+    public String toString() {
+        return "nome=" + getNome() + ", idade=" + getIdade() + "salario=" + salario + ", titulo=" + titulo;
+    }
+
+    
+    
+    @Override
     public void imprimir() {
-        super.imprimir();
-        JOptionPane.showMessageDialog(null, "Titulo: " + titulo);
-        JOptionPane.showMessageDialog(null, "Salário: " + salario);
+//        super.imprimir();
+        JOptionPane.showMessageDialog(null, toString());
 
     }
 
@@ -48,6 +53,11 @@ public class Professor extends Pessoa {
         titulo = JOptionPane.showInputDialog("Digite seu titulo:");
         salario = Double.parseDouble(JOptionPane.showInputDialog("Digite seu salario:"));
 
+    }
+
+    @Override
+    public void getNomeFormatado() {
+        JOptionPane.showMessageDialog(null, titulo + ", " + super.getNome());
     }
 
 }
